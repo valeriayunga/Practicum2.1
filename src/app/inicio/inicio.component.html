@@ -1,1 +1,155 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Delivery Service</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flowbite/dist/flowbite.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
+
+
+
+</head>
+
+
+<body class="font-inter">
+<nav class=" px-6 py-4 flex justify-between items-center nav-shadow">
+  <div class="flex flex-shrink-0 items-center">
+    <!-- Imagen del logo -->
+    <img src="../../../assets/img/Logo.png" alt="dsa" width="70 px">
+  </div>
+  <div class="flex items-center gap-4">
+
+    <!-- Avatar y menú desplegable -->
+    <div class="flex items-center">
+      <img id="avatarButton"
+           type="button"
+           [class.cursor-pointer]="!isDropdownVisible"
+           (click)="toggleDropdown()"
+           class="w-10 h-10 rounded-full cursor-pointer"
+           src="../../../assets/img/perfil.png" alt="User dropdown">
+
+      <!-- Dropdown menu -->
+      <div id="userDropdown"
+           [class.hidden]="!isDropdownVisible"
+           class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600 absolute top-16 right-0">
+        <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
+          <div>{{username}}</div>
+          <div class="font-medium truncate">{{email}}</div>
+        </div>
+        <div class="py-1">
+          <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white" (click)="logout()">Salir</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<header class="text-center p-20 gradient-background text-white bg-gradient-to-tr from-[#03182b] to-[#0a579d]">
+  <h1 class="text-6xl font-bold mb-4">¿Tienes hambre?</h1>
+  <p class="text-xl mb-8">Con unos pocos clics, encuentra comidas accesibles cerca de ti</p>
+</header>
+
+
+<!-- Carrusel de Tarjetas -->
+<!-- Contenedor principal del carrusel -->
+<div class="bg-white py-6">
+  <div class="flex justify-between items-center">
+    <button aria-label="Previous" class="text-yellow-500">
+      <!-- Icono de flecha izquierda -->
+    </button>
+    <h2 class="text-2xl font-bold text-gray-700">Restaurantes Recomendados </h2>
+    <button aria-label="Next" class="text-yellow-500">
+      <!-- Icono de flecha derecha -->
+    </button>
+  </div>
+
+  <div class="mt-6 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+    <!-- Tarjeta de producto -->
+    <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+      <div class="bg-cover bg-center h-56 p-4" >
+        <!-- Imagen del producto -->
+      </div>
+      <div class="p-4">
+        <p class="text-2xl font-bold text-yellow-500">$3.88</p>
+        <p class="text-gray-700 uppercase">Cheese Burger</p>
+        <p class="text-gray-500 text-sm">Burger Arena</p>
+      </div>
+      <div class="flex p-4 border-t border-gray-300 text-gray-700">
+        <button class="bg-yellow-500 text-white px-4 py-2 rounded">Order Now</button>
+      </div>
+    </div>
+    <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+      <div class="bg-cover bg-center h-56 p-4" style="background-image: url('path_to_cheeseburger_image.jpg')">
+        <!-- Imagen del producto -->
+      </div>
+      <div class="p-4">
+        <p class="text-2xl font-bold text-yellow-500">$3.88</p>
+        <p class="text-gray-700 uppercase">Cheese Burger</p>
+        <p class="text-gray-500 text-sm">Burger Arena</p>
+      </div>
+      <div class="flex p-4 border-t border-gray-300 text-gray-700">
+        <button class="bg-yellow-500 text-white px-4 py-2 rounded">Order Now</button>
+      </div>
+    </div>
+    <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+      <div class="bg-cover bg-center h-56 p-4" style="background-image: url('path_to_cheeseburger_image.jpg')">
+        <!-- Imagen del producto -->
+      </div>
+      <div class="p-4">
+        <p class="text-2xl font-bold text-yellow-500">$3.88</p>
+        <p class="text-gray-700 uppercase">Cheese Burger</p>
+        <p class="text-gray-500 text-sm">Burger Arena</p>
+      </div>
+      <div class="flex p-4 border-t border-gray-300 text-gray-700">
+        <button class="bg-yellow-500 text-white px-4 py-2 rounded">Order Now</button>
+      </div>
+    </div>
+    <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+      <div class="bg-cover bg-center h-56 p-4" style="background-image: url('path_to_cheeseburger_image.jpg')">
+        <!-- Imagen del producto -->
+      </div>
+      <div class="p-4">
+        <p class="text-2xl font-bold text-yellow-500">$3.88</p>
+        <p class="text-gray-700 uppercase">Cheese Burger</p>
+        <p class="text-gray-500 text-sm">Burger Arena</p>
+      </div>
+      <div class="flex p-4 border-t border-gray-300 text-gray-700">
+        <button class="bg-yellow-500 text-white px-4 py-2 rounded">Order Now</button>
+      </div>
+    </div>
+    <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+      <div class="bg-cover bg-center h-56 p-4" style="background-image: url('path_to_cheeseburger_image.jpg')">
+        <!-- Imagen del producto -->
+      </div>
+      <div class="p-4">
+        <p class="text-2xl font-bold text-yellow-500">$3.88</p>
+        <p class="text-gray-700 uppercase">Cheese Burger</p>
+        <p class="text-gray-500 text-sm">Burger Arena</p>
+      </div>
+      <div class="flex p-4 border-t border-gray-300 text-gray-700">
+        <button class="bg-yellow-500 text-white px-4 py-2 rounded">Order Now</button>
+      </div>
+    </div>
+    <!-- Repite la estructura de la tarjeta para cada producto -->
+    <!-- ... -->
+  </div>
+</div>
+
+
+<section class=" p-12 gradient-background text-white  bg-gradient-to-tr from-[#03182b] to-[#0a579d]">
+  <div class="max-w-screen-lg mx-auto">
+    <h2 class="text-4xl font-bold text-center mb-10">Cómo Funciona Nuestra Magia</h2>
+    <div class="flex flex-wrap justify-center gap-10">
+
+      <!-- Repeat for each step -->
+      <div class="text-center mb-4">
+        <i class="fas fa-map-marker-alt fa-3x"></i>
+        <p class="text-lg font-semibold mt-4 mb-2">Select location</p>
+        <p>Choose the location where your food will be delivered.</p>
+      </div>
+      <!-- ... other steps ... -->
+    </div>
+  </div>
+</section>
