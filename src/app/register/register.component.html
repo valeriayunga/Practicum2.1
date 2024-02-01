@@ -1,0 +1,64 @@
+<!-- component -->
+<body>
+<section class="min-h-screen flex items-center justify-center text-white bg-gradient-to-tr from-[#03182b] to-[#0a579d]">
+
+  <div class="lg:w-1/2 w-full flex items-center justify-center text-center md:px-16 px-0 z-0">
+
+    <div class="w-full py-6 z-20">
+      <div class="w-auto h-7 sm:h-8 inline-flex">
+        <img src="../../assets/img/DeliMatch.png" alt="" class="w-[200px] h-[190px]">
+      </div>
+
+
+      <form [formGroup]="registerForm" (ngSubmit)="registerUser()"  action="" class="sm:w-2/3 w-full px-4 lg:px-0 mx-auto">
+        <div class="pb-2 pt-4">
+          <input formControlName="username" type="username" id="username" placeholder="Nombre" class="block w-full p-4 text-lg rounded-sm bg-black">
+        </div>
+        <!--Mensaje de error-->
+        <div *ngIf="registerForm.controls['username'].invalid && registerForm.controls['username'].touched"
+             class="text-[14px] text-red-600">
+          Usuario es requerido.
+        </div>
+        <div class="pb-2 pt-4">
+          <input formControlName="email" type="email" placeholder="Email" class="block w-full p-4 text-lg rounded-sm bg-black">
+        </div>
+        <div *ngIf="registerForm.controls['email'].invalid && registerForm.controls['email'].touched"
+             class="text-[14px] text-red-600">
+          Email es inválido.
+        </div>
+        <div class="pb-2 pt-4">
+          <input class="block w-full p-4 text-lg rounded-sm bg-black" type="password" formControlName="password" placeholder="Contraseña">
+        </div>
+        <div  *ngIf="registerForm.controls['password'].invalid && registerForm.controls['password'].touched"
+              class="text-[14px] text-red-600">
+          Contraseña es requerida.
+        </div>
+        <div class="text-right text-gray-400 hover:underline hover:text-gray-100">
+          <a href="#">¿Olvidaste tu contraseña?</a>
+        </div>
+        <div class="px-4 pb-2 pt-4">
+          <button type="submit" class="uppercase block w-full p-4 text-lg rounded-full bg-indigo-500 hover:bg-indigo-600 focus:outline-none" >Registrar</button>
+          <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+            {{errorMessage}}
+          </div>
+        </div>
+        <div class="px-4 pb-2 pt-4">
+          <button type="submit" class="uppercase block w-full p-4 text-lg rounded-full bg-indigo-500 hover:bg-indigo-600 focus:outline-none" routerLink="/login">Iniciar Sesión</button>
+          <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+            {{errorMessage}}
+          </div>
+        </div>
+        <div class="py-6 space-x-2">
+          <span class="w-10 h-10 items-center justify-center inline-flex rounded-full font-bold text-lg border-2 border-white">f</span>
+          <span class="w-10 h-10 items-center justify-center inline-flex rounded-full font-bold text-lg border-2 border-white">G+</span>
+          <span class="w-10 h-10 items-center justify-center inline-flex rounded-full font-bold text-lg border-2 border-white">in</span>
+
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+</body>
+
+
+
