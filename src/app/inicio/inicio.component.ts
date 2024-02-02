@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {AuthService} from "../../services/login.service";
 import { Location } from '@angular/common';
 
+
 export interface Producto {
   nombre: string;
   direccion: string;
@@ -20,6 +21,9 @@ export class InicioComponent {
   currentPage: string;
   username: string;
   email: string;
+  usuario: string = '';
+// En tu componente
+  recomendaciones: any[] = [];
 
 
   constructor(private location: Location, private authService: AuthService) {
@@ -49,19 +53,20 @@ export class InicioComponent {
 
   // Método para ir a la diapositiva anterior
   maxIndex: number = 3;
-  prevSlide(): void {
-    this.currentIndex = this.currentIndex > 0 ? this.currentIndex - 1 : 0;
-    this.updateCarousel();
+  enviarNombre(nombre: string): void {
+    this.authService.obtenerRecomendaciones(nombre).subscribe({
+      next: (data) => {
+        console.log("Datos",data)
+        this.actualizarVistaConRecomendaciones(data.recomendaciones);
+      },
+      error: (error) => console.error('Error al obtener recomendaciones:', error)
+    });
+  }
+  actualizarVistaConRecomendaciones(recomendaciones: any[]): void {
+    this.recomendaciones = recomendaciones;
+  }
+  isNumber(value: any): boolean {
+    return !isNaN(parseFloat(value)) && isFinite(value);
   }
 
-  // Método para ir a la próxima diapositiva
-  nextSlide(): void {
-    this.currentIndex = this.currentIndex < this.maxIndex ? this.currentIndex + 1 : this.maxIndex;
-    this.updateCarousel();
-  }
-
-  // Método para actualizar el carrusel (podrías cambiar la clase o estilo de los elementos aquí)
-  private updateCarousel(): void {
-    // Lógica para actualizar el carrusel basado en currentIndex
-  }
 }

@@ -62,12 +62,14 @@
       </h2>
       <p class="mb-6 text-base font-thin tracking-wide text-gray-300 md:text-lg">
         Descubre una experiencia gastronómica única. Ingresa tus preferencias y datos, y te llevaremos a un viaje culinario recomendándote los mejores locales de comida que se adapten perfectamente a tus gustos.      </p>
-      <form class="flex flex-col items-center w-full mb-4 md:flex-row md:px-16">
+      <form class="flex flex-col items-center w-full mb-4 md:flex-row md:px-16 ml-20" (ngSubmit)="enviarNombre(usuario)">
         <input
-          placeholder="Email"
-          required=""
+          [(ngModel)]="usuario"
+          name="usuario"
+          placeholder="Nombre de Usuario"
+          required
           type="text"
-          class="flex-grow w-full h-12 px-4 mb-3 text-white transition duration-200 bg-transparent border-2 border-gray-400 rounded appearance-none md:mr-2 md:mb-0 focus:border-deep-purple-accent-200 focus:outline-none focus:shadow-outline"
+          class="..."
         />
         <button
           type="submit"
@@ -95,9 +97,7 @@
   <div class="flex flex-col items-center">
 
     <h2 class="text-2xl font-bold text-gray-700 pb-4">Restaurantes Recomendados </h2>
-    <button data-modal-target="default-modal" data-modal-toggle="default-modal" class="text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" type="button">
-  Detalles
-</button>
+
   </div>
 
 
@@ -138,76 +138,22 @@
 </div>
 
   <div class="mt-6 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
-    <!-- Tarjeta de producto -->
-    <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-      <div class="bg-cover bg-center h-56 p-4" >
-        <img src="./../../assets/img/hamburguesa.png" alt="">
-        <!-- Imagen del producto -->
+    <!-- Iterar sobre las recomendaciones para mostrar las tarjetas -->
+    <div class="bg-white shadow-lg rounded-lg overflow-hidden" *ngFor="let recomendacion of recomendaciones">
+      <div class="bg-cover bg-center h-30 p-4 ">
+        <!-- Aquí puedes poner una imagen por defecto o basada en la recomendación si tienes esa información -->
+        <img class="" src="./../../assets/img/hamburguesa.png" alt="Imagen del producto">
       </div>
       <div class="p-4">
-        <p class="text-2xl font-bold text-yellow-500">$3.88</p>
-        <p class="text-gray-700 uppercase">Cheese Burger</p>
-        <p class="text-gray-500 text-sm">Burger Arena</p>
+        <!-- Usa los datos de la recomendación. Ejemplo: recomendacion[0] para el nombre, recomendacion[1] para el score -->
+        <p class="text-2xl font-bold te"> Precisión </p>
+        <p class="text-1xl font-bold text-yellow-500">{{ recomendacion[1] * 100 | number:'1.2-2' }}%</p>        <p class="text-gray-900 font-bold uppercase">{{ recomendacion[0] }}</p>
+        <!-- Puedes agregar aquí más información si la API la proporciona -->
       </div>
       <div class="flex p-4 border-t border-gray-300 text-gray-700">
-        <button class="bg-yellow-500 text-white px-4 py-2 rounded">Información</button>
+        <button class="bg-blue-900 text-white px-4 py-2 rounded">Más Información</button>
       </div>
     </div>
-    <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-      <div class="bg-cover bg-center h-56 p-4" style="background-image: url('path_to_cheeseburger_image.jpg')">
-        <!-- Imagen del producto -->
-        <img src="./../../assets/img/hamburguesa.png" alt="">
-      </div>
-      <div class="p-4">
-        <p class="text-2xl font-bold text-yellow-500">$3.88</p>
-        <p class="text-gray-700 uppercase">Cheese Burger</p>
-        <p class="text-gray-500 text-sm">Burger Arena</p>
-      </div>
-      <div class="flex p-4 border-t border-gray-300 text-gray-700">
-        <button class="bg-yellow-500 text-white px-4 py-2 rounded">Order Now</button>
-      </div>
-    </div>
-    <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-      <div class="bg-cover bg-center h-56 p-4" style="background-image: url(' path_to_cheeseburger_image.jpg')">
-        <!-- Imagen del producto -->
-      </div>
-      <div class="p-4">
-        <p class="text-2xl font-bold text-yellow-500">$3.88</p>
-        <p class="text-gray-700 uppercase">Cheese Burger</p>
-        <p class="text-gray-500 text-sm">Burger Arena</p>
-      </div>
-      <div class="flex p-4 border-t border-gray-300 text-gray-700">
-        <button class="bg-yellow-500 text-white px-4 py-2 rounded">Order Now</button>
-      </div>
-    </div>
-    <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-      <div class="bg-cover bg-center h-56 p-4" style="background-image: url('path_to_cheeseburger_image.jpg')">
-        <!-- Imagen del producto -->
-      </div>
-      <div class="p-4">
-        <p class="text-2xl font-bold text-yellow-500">$3.88</p>
-        <p class="text-gray-700 uppercase">Cheese Burger</p>
-        <p class="text-gray-500 text-sm">Burger Arena</p>
-      </div>
-      <div class="flex p-4 border-t border-gray-300 text-gray-700">
-        <button class="bg-yellow-500 text-white px-4 py-2 rounded">Order Now</button>
-      </div>
-    </div>
-    <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-      <div class="bg-cover bg-center h-56 p-4" style="background-image: url('path_to_cheeseburger_image.jpg')">
-        <!-- Imagen del producto -->
-      </div>
-      <div class="p-4">
-        <p class="text-2xl font-bold text-yellow-500">$3.88</p>
-        <p class="text-gray-700 uppercase">Cheese Burger</p>
-        <p class="text-gray-500 text-sm">Burger Arena</p>
-      </div>
-      <div class="flex p-4 border-t border-gray-300 text-gray-700">
-        <button class="bg-yellow-500 text-white px-4 py-2 rounded">Order Now</button>
-      </div>
-    </div>
-    <!-- Repite la estructura de la tarjeta para cada producto -->
-    <!-- ... -->
   </div>
 </div>
 
