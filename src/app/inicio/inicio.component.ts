@@ -73,7 +73,7 @@ export class InicioComponent {
     './../../assets/img/hamburguesa.png',
     './../../assets/img/pizza.png',
     './../../assets/img/papas.png',
-    './../../assets/img/gill.png',
+    './../../assets/img/grill.png',
     './../../assets/img/seviche.png',
     // ... otras imágenes
   ];
