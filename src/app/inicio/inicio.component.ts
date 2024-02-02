@@ -79,5 +79,12 @@ export class InicioComponent {
     return this.imagenes[Math.floor(Math.random() * this.imagenes.length)];
   }
 
-
+  scrollTo(section: string): void {
+    const element = document.querySelector('#' + section);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      console.warn('Elemento no encontrado:', section);
+    }
+  }
 }

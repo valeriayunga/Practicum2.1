@@ -80,8 +80,8 @@
       </form>
 
       <a
-        href="/"
         aria-label="Scroll down"
+        (click)="scrollTo('Muestra')"
         class="flex items-center justify-center w-10 h-10 mx-auto text-white duration-300 transform border border-gray-400 rounded-full hover:text-teal-accent-400 hover:border-teal-accent-400 hover:shadow hover:scale-110"
       >
         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
@@ -142,12 +142,19 @@
     <div class="bg-white shadow-lg rounded-lg overflow-hidden" *ngFor="let recomendacion of recomendaciones">
       <div class="bg-cover bg-center h-30 p-4 ">
         <!-- Aquí puedes poner una imagen por defecto o basada en la recomendación si tienes esa información -->
-        <img class="" [src]="getRandomImage()" alt="Imagen del producto">
+        <img class="w-[300px] h-[280px]" [src]="getRandomImage()" alt="Imagen del producto">
       </div>
       <div class="p-4">
         <!-- Usa los datos de la recomendación. Ejemplo: recomendacion[0] para el nombre, recomendacion[1] para el score -->
-        <p class="text-2xl font-bold te"> Precisión </p>
-        <p class="text-1xl font-bold text-yellow-500">{{ recomendacion[1] * 100 | number:'1.2-2' }}%</p>        <p class="text-gray-900 font-bold uppercase">{{ recomendacion[0] }}</p>
+        <p class="text-gray-900 font-bold uppercase text-2xl">{{ recomendacion[0] }}</p>
+        <div class="flex items-center space-x-2">
+          <p class="text-xl font-bold text-blue-800">Precisión</p>
+          <p class="text-xl font-bold text-yellow-500">{{ recomendacion[1] * 100 | number:'1.2-2' }}%</p>
+        </div>
+        <p class="text-sm text-gray-600">
+          <!-- Texto quemado como ejemplo para la descripción -->
+          Descubre los sabores auténticos de nuestra cocina local con una variedad de platos tradicionales y modernos.
+        </p>
         <!-- Puedes agregar aquí más información si la API la proporciona -->
       </div>
       <div class="flex p-4 border-t border-gray-300 text-gray-700">
@@ -158,16 +165,16 @@
 </div>
 
 
-<section class=" p-12 gradient-background text-white  bg-gradient-to-tr from-[#03182b] to-[#0a579d]">
+<section id ="Muestra" class=" p-12 gradient-background text-white  bg-gradient-to-tr from-[#03182b] to-[#0a579d]">
   <div class="max-w-screen-lg mx-auto">
-    <h2 class="text-4xl font-bold text-center mb-10">Cómo Funciona Nuestra Magia</h2>
+    <h2 class="text-4xl font-bold text-center mb-10">Proximamente</h2>
     <div class="flex flex-wrap justify-center gap-10">
 
       <!-- Repeat for each step -->
       <div class="text-center mb-4">
         <i class="fas fa-map-marker-alt fa-3x"></i>
-        <p class="text-lg font-semibold mt-4 mb-2">Select location</p>
-        <p>Choose the location where your food will be delivered.</p>
+        <p class="text-lg font-semibold mt-4 mb-2">Selecciona tu ubicación</p>
+        <p>Cada vez más cerca de tí</p>
       </div>
       <!-- ... other steps ... -->
     </div>
