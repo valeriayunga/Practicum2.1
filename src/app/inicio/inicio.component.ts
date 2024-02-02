@@ -69,4 +69,15 @@ export class InicioComponent {
     return !isNaN(parseFloat(value)) && isFinite(value);
   }
 
+  imagenes: string[] = [
+    './../../assets/img/hamburguesa.png',
+    './../../assets/img/pizza.png',
+    './../../assets/img/papas.png',
+    // ... otras imágenes
+  ];
+  getRandomImage() {
+    return this.imagenes[Math.floor(Math.random() * this.imagenes.length)];
+  }
+
+
 }

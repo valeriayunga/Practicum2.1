@@ -142,7 +142,7 @@
     <div class="bg-white shadow-lg rounded-lg overflow-hidden" *ngFor="let recomendacion of recomendaciones">
       <div class="bg-cover bg-center h-30 p-4 ">
         <!-- Aquí puedes poner una imagen por defecto o basada en la recomendación si tienes esa información -->
-        <img class="" src="./../../assets/img/hamburguesa.png" alt="Imagen del producto">
+        <img class="" [src]="getRandomImage()" alt="Imagen del producto">
       </div>
       <div class="p-4">
         <!-- Usa los datos de la recomendación. Ejemplo: recomendacion[0] para el nombre, recomendacion[1] para el score -->
