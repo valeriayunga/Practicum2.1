@@ -75,6 +75,14 @@ export class InicioComponent {
     './../../assets/img/papas.png',
     './../../assets/img/grill.png',
     './../../assets/img/seviche.png',
+    './../../assets/img/agachadito.png',
+    './../../assets/img/alitas.png',
+    './../../assets/img/milanesa.png',
+    './../../assets/img/taco.png',
+    './../../assets/img/chifa.png',
+    './../../assets/img/empanada.png',
+    './../../assets/img/buñuelo.png',
+    './../../assets/img/bolon.png',
     // ... otras imágenes
   ];
   getRandomImage() {
